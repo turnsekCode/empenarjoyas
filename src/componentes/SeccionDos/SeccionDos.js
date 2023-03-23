@@ -1,22 +1,12 @@
 import React from "react";
-import Conversor from "../ConversorDivisa/Conversor";
+import Conversor from "../BloqueInfo/Conversor";
 import ListadoTiendas from "../ListadoTiendas/ListadoTiendas";
 import styles from "./seccionDos.module.css";
 
-const SeccionDos = ({
-  dataReverse,
-  dataReverseVenta,
-  ciudad,
-  comprar,
-  arrayTiendas,
-}) => {
+const SeccionDos = ({ ciudad, arrayTiendas, data }) => {
   return (
     <div className={styles.contenedorSeccionDos}>
-      <Conversor
-        dataReverse={dataReverse}
-        dataReverseVenta={dataReverseVenta}
-        comprar={comprar}
-      />
+      <Conversor data={data} ciudad={ciudad} />
       <ListadoTiendas ciudad={ciudad} arrayTiendas={arrayTiendas} />
     </div>
   );
