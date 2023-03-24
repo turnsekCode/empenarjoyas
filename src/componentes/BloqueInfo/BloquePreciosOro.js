@@ -3,7 +3,7 @@ import React from "react";
 import logoOro from "../../../public/assets/logoOro.png";
 import styles from "./conversor.module.css";
 
-const BloquePreciosPlata = ({ data, ciudad }) => {
+const BloquePreciosPlata = ({ data, ciudad, loading }) => {
   const precio24k = data?.result?.Tarifas?.Oro[12].Productos[0].Precio / 1000;
   const precio18k = data?.result?.Tarifas?.Oro[2].Productos[0].Precio / 1000;
   const precio14k = data?.result?.Tarifas?.Oro[10].Productos[0].Precio / 1000;
@@ -23,21 +23,33 @@ const BloquePreciosPlata = ({ data, ciudad }) => {
         </h4>
         <div className={styles.contenedorPrecios}>
           <div className={styles.precios}>
-            <p>
-              {precioMas24k} <span>€/g</span>
-            </p>
+            {loading ? (
+              <p>
+                {precioMas24k} <span>€/g</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>24K</span>
           </div>
           <div className={styles.precios}>
-            <p>
-              {precioMas18k} <span>€/g</span>
-            </p>
+            {loading ? (
+              <p>
+                {precioMas18k} <span>€/g</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>18K</span>
           </div>
           <div className={styles.precios}>
-            <p>
-              {precioMas14k} <span>€/g</span>
-            </p>
+            {loading ? (
+              <p>
+                {precioMas14k} <span>€/g</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>14K</span>
           </div>
         </div>
@@ -48,21 +60,33 @@ const BloquePreciosPlata = ({ data, ciudad }) => {
         </h4>
         <div className={styles.contenedorPrecios}>
           <div className={styles.precios}>
-            <p>
-              {precio24k.toFixed(2)} <span>€/g</span>
-            </p>
+            {loading ? (
+              <p>
+                {precio24k.toFixed(2)} <span>€/g</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>24K</span>
           </div>
           <div className={styles.precios}>
-            <p>
-              {precio18k.toFixed(2)} <span>€/g</span>
-            </p>
+            {loading ? (
+              <p>
+                {precio18k.toFixed(2)} <span>€/g</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>18K</span>
           </div>
           <div className={styles.precios}>
-            <p>
-              {precio14k.toFixed(2)} <span>€/g</span>
-            </p>
+            {loading ? (
+              <p>
+                {precio14k.toFixed(2)} <span>€/g</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>14K</span>
           </div>
         </div>

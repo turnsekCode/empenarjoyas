@@ -1,12 +1,14 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import Layout from "@/componentes/Layout/Layout";
 import SeccionDos from "@/componentes/SeccionDos/SeccionDos";
 import SeccionUno from "@/componentes/SeccionUno/SeccionUno";
+import BannerPromoUno from "../../componentes/BannerPromoUno/BannerPromoUno";
+import BannerPromoDos from "../../componentes/BannerPromoDos/BannerPromoDos";
 import React from "react";
-import useSWR from "swr";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const index = ({
   ciudad,
+  general,
   tienda1,
   tienda2,
   tienda3,
@@ -31,10 +33,16 @@ const index = ({
   tienda11Google,
 }) => {
   const nombreCiudad = ciudad.acf.ciudad_oro;
-  const { data } = useSWR(
-    `https://quickgold.es/archivos-cache/Fixing${nombreCiudad}.txt`,
-    fetcher
-  );
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(null);
+  useEffect(() => {
+    fetch(`https://quickgold.es/archivos-cache/Fixing${nombreCiudad}.txt`)
+      .then((response) => response.json())
+      .then((response) => {
+        setData(response);
+        setLoading(true);
+      });
+  }, []);
   const arrayTiendas = [
     {
       id: 1,
@@ -243,8 +251,15 @@ const index = ({
           nombreCiudad={ciudad.acf.ciudad_landing}
           telefono={ciudad.acf.telefono}
         />
+        {ciudad.acf.foto_1 !== "" ? <BannerPromoUno ciudad={ciudad} /> : ""}
+        {general.acf.foto_2 !== "" && ciudad.acf.foto_1 === "" ? (
+          <BannerPromoDos general={general} />
+        ) : (
+          ""
+        )}
         <SeccionDos
           data={data}
+          loading={loading}
           ciudad={ciudad}
           comprar={ciudad.acf.vende_divisa}
           arrayTiendas={arrayTiendas}
@@ -256,6 +271,7 @@ const index = ({
 
 export default index;
 const idPaginaWp = "468";
+const apiGeneral = "13848";
 //variables id de tiendas de la api de wordpress
 const id1 = "11108";
 const id2 = "6888";
@@ -270,6 +286,10 @@ const id10 = "6186";
 const id11 = "14146";
 export async function getStaticProps() {
   //datos de los campos personalizados de la ciudad
+  const res = await fetch(
+    `https://quickgold.es/wp-json/acf/v3/pages/${apiGeneral}`
+  );
+  const general = await res.json();
   const madrid = await fetch(
     `https://quickgold.es/wp-json/acf/v3/pages/${idPaginaWp}`
   );
@@ -315,7 +335,7 @@ export async function getStaticProps() {
   const tienda_8 = tienda8.acf?.tienda;
   const tienda_9 = tienda9.acf?.tienda;
   const tienda_10 = tienda10.acf?.tienda;
-  const tienda_11 = tienda10.acf?.tienda;
+  const tienda_11 = tienda11.acf?.tienda;
   const google1 = await fetch(
     `https://quickgold.es/archivos-cache/archivos-cache-gmb/cached-place_id-${tienda_1}.txt`
   );
@@ -364,8 +384,7 @@ export async function getStaticProps() {
   return {
     props: {
       ciudad,
-      //dataReverse,
-      //dataReverseVenta,
+      general,
       tienda1,
       tienda2,
       tienda3,

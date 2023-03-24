@@ -5,7 +5,7 @@ import logoEmpeno from "../../../public/assets/logoEmpeno.png";
 import BloqueSuperior from "./BloqueSuperior";
 import BloqueInfoEmpenos from "./BloqueInfoEmpenos";
 
-const Conversor = ({ data, ciudad }) => {
+const Conversor = ({ data, ciudad, loading }) => {
   return (
     <div className={styles.contenedorConversorBanderas}>
       <div className={styles.contenedorConversor}>
@@ -16,7 +16,7 @@ const Conversor = ({ data, ciudad }) => {
             {/*<p>¿Cuánto cuesta ahora el oro?</p>*/}
           </div>
         </div>
-        <BloqueSuperior data={data} ciudad={ciudad} />
+        <BloqueSuperior data={data} ciudad={ciudad} loading={loading} />
       </div>
       <BloqueInfoEmpenos ciudad={ciudad} />
     </div>

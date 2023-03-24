@@ -3,7 +3,7 @@ import styles from "./conversor.module.css";
 import BloquePreciosOro from "./BloquePreciosOro";
 import BloquePrecioPlata from "./BloquePrecioPlata";
 
-const CalculadoraOro = ({ data, ciudad }) => {
+const CalculadoraOro = ({ data, ciudad, loading }) => {
   const primerMes = ciudad.acf.primer_mes;
   const tasacion = ciudad.acf.tasacion;
   const intereStandar = ciudad.acf.interes_standard;
@@ -45,8 +45,8 @@ const CalculadoraOro = ({ data, ciudad }) => {
           LLAMA GRATIS AL {telefono}
         </a>
       </div>
-      <BloquePreciosOro data={data} ciudad={ciudad} />
-      <BloquePrecioPlata data={data} ciudad={ciudad} />
+      <BloquePreciosOro data={data} ciudad={ciudad} loading={loading} />
+      <BloquePrecioPlata data={data} ciudad={ciudad} loading={loading} />
     </div>
   );
 };
