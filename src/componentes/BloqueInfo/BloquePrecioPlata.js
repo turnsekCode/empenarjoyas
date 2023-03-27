@@ -3,7 +3,7 @@ import styles from "./conversor.module.css";
 import logoPlata from "../../../public/assets/logoPlata.png";
 import Image from "next/image";
 
-const BloquePrecioPlata = ({ data, ciudad }) => {
+const BloquePrecioPlata = ({ data, ciudad, loading }) => {
   const precio999 =
     (data?.result?.Tarifas?.Plata[3].Productos[0].Precio).toFixed(2);
   const precio925 =
@@ -22,21 +22,33 @@ const BloquePrecioPlata = ({ data, ciudad }) => {
         </h4>
         <div className={styles.contenedorPrecios}>
           <div className={styles.precios}>
-            <p>
-              {precio999} <span>€/kg</span>
-            </p>
+            {loading ? (
+              <p>
+                {precio999} <span>€/kg</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>999</span>
           </div>
           <div className={styles.precios}>
-            <p>
-              {precio925} <span>€/kg</span>
-            </p>
+            {loading ? (
+              <p>
+                {precio925} <span>€/kg</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>925</span>
           </div>
           <div className={styles.precios}>
-            <p>
-              {precio800} <span>€/kg</span>
-            </p>
+            {loading ? (
+              <p>
+                {precio800} <span>€/kg</span>
+              </p>
+            ) : (
+              <p>Cargando</p>
+            )}
             <span>800</span>
           </div>
         </div>

@@ -36,7 +36,9 @@ const index = ({
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(null);
   useEffect(() => {
-    fetch(`https://quickgold.es/archivos-cache/Fixing${nombreCiudad}.txt`)
+    fetch(`https://quickgold.es/archivos-cache/Fixing${nombreCiudad}.txt`, {
+      cache: "no-cache",
+    })
       .then((response) => response.json())
       .then((response) => {
         setData(response);
