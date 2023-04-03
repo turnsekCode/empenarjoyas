@@ -24,7 +24,8 @@ const BloquePrecioPlata = ({ data, ciudad, loading }) => {
           <div className={styles.precios}>
             {loading ? (
               <p>
-                {precio999} <span>€/kg</span>
+                {precio999}
+                <span>€/kg</span>
               </p>
             ) : (
               <p>Cargando</p>
@@ -34,7 +35,8 @@ const BloquePrecioPlata = ({ data, ciudad, loading }) => {
           <div className={styles.precios}>
             {loading ? (
               <p>
-                {precio925} <span>€/kg</span>
+                {precio925}
+                <span>€/kg</span>
               </p>
             ) : (
               <p>Cargando</p>
@@ -44,7 +46,8 @@ const BloquePrecioPlata = ({ data, ciudad, loading }) => {
           <div className={styles.precios}>
             {loading ? (
               <p>
-                {precio800} <span>€/kg</span>
+                {precio800}
+                <span>€/kg</span>
               </p>
             ) : (
               <p>Cargando</p>

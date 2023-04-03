@@ -2,10 +2,18 @@ import React from "react";
 import styles from "./bannerPromoUno.module.css";
 
 const BannerPromoUno = ({ ciudad }) => {
-  console.log(ciudad);
   return (
     <div className={styles.contenedorBannerUno}>
-      <img src={ciudad?.acf?.foto_1} alt="Banner uno" />
+      <img
+        className={styles.bannerDesktop}
+        src={ciudad?.acf?.imagen_empenarjoyas_desktop}
+        alt="Banner uno"
+      />
+      <img
+        className={styles.bannerMobil}
+        src={ciudad?.acf?.imagen_empenarjoyas_mobil}
+        alt="Banner uno mobil"
+      />
     </div>
   );
 };

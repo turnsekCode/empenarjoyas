@@ -22,9 +22,10 @@
 .botonLamar{
     background: #E83C82;
     border-radius: 2px;
-    padding: 13px 15px;
+    padding: 13px 12px;
     font-weight: 700;
     font-size: 14px;
+    text-align: center;
     line-height: 14px;
     color: #FFFFFF;
     width: 280px;
