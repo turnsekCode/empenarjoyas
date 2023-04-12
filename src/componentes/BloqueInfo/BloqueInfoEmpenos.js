@@ -6,6 +6,8 @@ const BloqueInfoEmpenos = ({ ciudad }) => {
   const costeTasacion = ciudad.acf.coste_de_tasacion;
   const intereStandar = ciudad.acf.interes_standard;
   const telefono = ciudad.acf.telefono;
+  const precio = 100;
+  const percibes = precio - costeTasacion;
   return (
     <div className={styles.contenedorInfo}>
       <p className={styles.primerParrafo}>
@@ -29,8 +31,8 @@ const BloqueInfoEmpenos = ({ ciudad }) => {
         Además tiene asociado un gasto de gestión del {costeTasacion}%.
       </p>
       <div className={styles.ejemplo}>
-        <p>Si empeñas: 100€</p>
-        <p>Obtienes: 97€</p>
+        <p>Si empeñas: {precio}€</p>
+        <p>Obtienes: {percibes}€</p>
       </div>
       <p className={styles.tercerParrafo}>
         Para recuperar las piezas empeñadas pasado el primer mes y finalizar el
