@@ -136,10 +136,10 @@ const index = ({
 };
 
 export default index;
-const idPaginaWp = "9893";
+const idPaginaWp = "5050";
 const apiGeneral = "13848";
 //variables id de tiendas de la api de wordpress
-const id1 = "11108";
+const id1 = "9893";
 const id2 = "5645";
 export async function getStaticProps() {
   //datos de los campos personalizados de la ciudad
