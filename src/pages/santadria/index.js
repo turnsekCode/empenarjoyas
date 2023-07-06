@@ -9,7 +9,7 @@ import React from "react";
 import Script from "next/script";
 import SeccionTres from "@/componentes/SeccionTres/SeccionTres";
 const index = ({ ciudad, tiendaGoogle, general }) => {
-  const nombreCiudad = ciudad.acf.ciudad_oro;
+  const nombreCiudad = ciudad?.acf?.ciudad_oro;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(null);
   useEffect(() => {
@@ -26,26 +26,26 @@ const index = ({ ciudad, tiendaGoogle, general }) => {
     <>
       <Head>
         <title>
-          Las mejores condiciones de {ciudad.acf.ciudad_landing} en empeño de
+          Las mejores condiciones de {ciudad?.acf?.ciudad_landing} en empeño de
           joyas solo en Quickgold | Quickgold
         </title>
         <meta
           name="description"
-          content={`Empeña tus joyas de oro y plata en ${ciudad.acf.ciudad_landing} sin pagar intereses el primer mes siempre con el mejor servicio garantizado`}
+          content={`Empeña tus joyas de oro y plata en ${ciudad?.acf?.ciudad_landing} sin pagar intereses el primer mes siempre con el mejor servicio garantizado`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="../../../assets/icon.png" />
         <meta name="robots" content="noindex"></meta>
-        {ciudad.acf.nonscript_chat}
+        {ciudad?.acf?.nonscript_chat}
       </Head>
       <Script id="livechat" strategy="afterInteractive">
-        {ciudad.acf.script_chat}
+        {ciudad?.acf?.script_chat}
       </Script>
 
       <Layout ciudad={ciudad}>
         <SeccionUno
-          nombreCiudad={ciudad.acf.ciudad_landing}
-          telefono={ciudad.acf.telefono}
+          nombreCiudad={ciudad?.acf?.ciudad_landing}
+          telefono={ciudad?.acf?.telefono}
         />
         {ciudad?.acf?.promo_activa_empenarjoyas ? (
           <BannerPromoUno
@@ -53,14 +53,14 @@ const index = ({ ciudad, tiendaGoogle, general }) => {
               ciudad
             }
           />
-        ) : ciudad.acf.promo_activa_empenarjoyas == false &&
+        ) : ciudad?.acf?.promo_activa_empenarjoyas == false &&
           general?.acf?.promo_activa_empenarjoyas ? (
           <BannerPromoDos
             /*banner para cada ciudad de las landings solo empenarjoyas (prioridad tres)*/ general={
               general
             }
           />
-        ) : general.acf.promo_activa_empenarjoyas == false &&
+        ) : general?.acf?.promo_activa_empenarjoyas == false &&
           general?.acf?.promo_general_activa ? (
           <BannerPromoGeneral
             /*banner general para todas las landings (prioridad dos)*/ general={

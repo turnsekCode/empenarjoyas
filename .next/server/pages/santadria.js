@@ -39,7 +39,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const index = ({ ciudad , tiendaGoogle , general  })=>{
-    const nombreCiudad = ciudad.acf.ciudad_oro;
+    const nombreCiudad = ciudad?.acf?.ciudad_oro;
     const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
     const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
     (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
@@ -57,13 +57,13 @@ const index = ({ ciudad , tiendaGoogle , general  })=>{
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("title", {
                         children: [
                             "Las mejores condiciones de ",
-                            ciudad.acf.ciudad_landing,
+                            ciudad?.acf?.ciudad_landing,
                             " en empe\xf1o de joyas solo en Quickgold | Quickgold"
                         ]
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                         name: "description",
-                        content: `Empeña tus joyas de oro y plata en ${ciudad.acf.ciudad_landing} sin pagar intereses el primer mes siempre con el mejor servicio garantizado`
+                        content: `Empeña tus joyas de oro y plata en ${ciudad?.acf?.ciudad_landing} sin pagar intereses el primer mes siempre con el mejor servicio garantizado`
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                         name: "viewport",
@@ -77,26 +77,26 @@ const index = ({ ciudad , tiendaGoogle , general  })=>{
                         name: "robots",
                         content: "noindex"
                     }),
-                    ciudad.acf.nonscript_chat
+                    ciudad?.acf?.nonscript_chat
                 ]
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
                 id: "livechat",
                 strategy: "afterInteractive",
-                children: ciudad.acf.script_chat
+                children: ciudad?.acf?.script_chat
             }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_componentes_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
                 ciudad: ciudad,
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_SeccionUno_SeccionUno__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
-                        nombreCiudad: ciudad.acf.ciudad_landing,
-                        telefono: ciudad.acf.telefono
+                        nombreCiudad: ciudad?.acf?.ciudad_landing,
+                        telefono: ciudad?.acf?.telefono
                     }),
                     ciudad?.acf?.promo_activa_empenarjoyas ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_BannerPromoUno_BannerPromoUno__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                         /*banner para cada tienda o ciudad personalizado (prioridad uno)*/ ciudad: ciudad
-                    }) : ciudad.acf.promo_activa_empenarjoyas == false && general?.acf?.promo_activa_empenarjoyas ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_BannerPromoDos_BannerPromoDos__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+                    }) : ciudad?.acf?.promo_activa_empenarjoyas == false && general?.acf?.promo_activa_empenarjoyas ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_BannerPromoDos_BannerPromoDos__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
                         /*banner para cada ciudad de las landings solo empenarjoyas (prioridad tres)*/ general: general
-                    }) : general.acf.promo_activa_empenarjoyas == false && general?.acf?.promo_general_activa ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_BannerGeneral_BannerPromoGeneral__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+                    }) : general?.acf?.promo_activa_empenarjoyas == false && general?.acf?.promo_general_activa ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_BannerGeneral_BannerPromoGeneral__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
                         /*banner general para todas las landings (prioridad dos)*/ general: general
                     }) : "",
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_componentes_SeccionTres_SeccionTres__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
