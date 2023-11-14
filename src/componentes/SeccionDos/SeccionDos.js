@@ -1,17 +1,13 @@
 import React from "react";
-import Conversor from "../ConversorDivisa/Conversor";
 import ListadoTiendas from "../ListadoTiendas/ListadoTiendas";
 import styles from "./seccionDos.module.css";
+import Empenos from "../BloqueInfo/Empenos";
 
-const SeccionDos = ({ ciudad, comprar, arrayTiendas, telefono }) => {
+const SeccionDos = ({ ciudad, markers, telefono }) => {
   return (
     <div className={styles.contenedorSeccionDos}>
-      <Conversor comprar={comprar} ciudad={ciudad} telefono={telefono} />
-      <ListadoTiendas
-        ciudad={ciudad}
-        arrayTiendas={arrayTiendas}
-        telefono={telefono}
-      />
+      <Empenos ciudad={ciudad} />
+      <ListadoTiendas ciudad={ciudad} markers={markers} telefono={telefono} />
     </div>
   );
 };
